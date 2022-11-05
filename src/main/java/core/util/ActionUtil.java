@@ -123,9 +123,17 @@ public class ActionUtil {
         doSwipe(driver, start, end, 1000);
     }
 
+    public static void scrollToEnd() {
+        driver().findElement(
+            AppiumBy.androidUIAutomator(
+    "new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(100000)")
+        );
+    }
+
     public static void scrollToBeginning() {
-        driver().findElement(AppiumBy.androidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true)).scrollToBeginning(1000)"));
+        driver().findElement(
+                AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollToBeginning(1000)")
+        );
     }
 
     public static void scrollVerticalPercent(double startPercent, double endPercent, AppiumDriver driver) {
@@ -231,6 +239,10 @@ public class ActionUtil {
 
     public static void startMainActivity() {
         ((AndroidDriver)driver()).startActivity(new Activity("com.swaglabsmobileapp", "com.swaglabsmobileapp.MainActivity"));
+    }
+
+    public static void startMainActivity(String appPackage, String appActivity) {
+        ((AndroidDriver)driver()).startActivity(new Activity(appPackage, appActivity));
     }
 
     static public String takeScreenshot(WebDriver driver) {
