@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="My Test Suite" parallel="tests" thread-count="5">
+    <listeners>
+        <listener class-name="core.TestngListener"/>
+    </listeners>
+    <test name="Emulator Test" parallel="false">
+        <parameter name="deviceName" value="Emulator"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="systemPort" value="10001"/>
+        <classes>
+            <class name="tests.Login"/>
+            <class name="tests.ProductPurchase"/>
+            <class name="tests.SortingProductListPage"/>
+        </classes>
+    </test>
+
+    <test name="Realme 7 Pro" parallel="false">
+        <parameter name="deviceName" value="Realme 7 Pro"/>
+        <parameter name="udid" value="65c93e24"/>
+        <parameter name="systemPort" value="10003"/>
+        <classes>
+            <class name="tests.Login"/>
+            <class name="tests.ProductPurchase"/>
+            <class name="tests.SortingProductListPage"/>
+        </classes>
+    </test>
+</suite>
